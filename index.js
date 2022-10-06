@@ -1,26 +1,26 @@
 fs = require('fs');
 
+const sum = require('./sum')
+
 fs.writeFile('helloworld.txt', 'Hello World', (err) => { if (err) throw err; console.log('Write completed') });
 
 console.log("Hello world")
 
-function sum(...theArgs) {
-    console.log(theArgs.length)
-    console.log(theArgs)
-  let total = 0;
-  for (const arg of theArgs) {
-    total += arg;
-  }
-  return total;
-}
 
 
-sum(1, 2, 3)
 
-sum(1, 2, 3, 4)
+let result1 = sum(1, 2, 3)
+console.log(result1)
 
-sum('hello') // [ 'hello' ] length 1
+let result2 = sum(1, 2, 3, 4)
+console.log(result2)
 
-sum('hello', 'world') // [ 'hello', 'world' ] length 2
+let result3 = sum('hello') // [ 'hello' ] length 1
+console.log(result3)
 
-sum(...'hello') // [ 'h', 'e', 'l', 'l', 'o' ] length 5
+let result4 = sum('hello', 'world') // [ 'hello', 'world' ] length 2
+console.log(result4)
+
+let result5 = sum(...'hello') // [ 'h', 'e', 'l', 'l', 'o' ] length 5
+console.log(result5)
+
